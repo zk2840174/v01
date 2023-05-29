@@ -13,6 +13,20 @@ const router = createRouter({
       path: '/about',
       name: 'about',
       component: () => import('../views/AboutView.vue')
+    },
+    {
+      path: '/todo',
+      name: 'todo index',
+      component: () => import('../views/todos/TodoIndex.vue'),
+      redirect: "/todo/list",
+      children: [
+        {
+          path: "list",
+          name: "TodoListPage",
+          component: () => import('../views/todos/TodoList.vue')
+        }
+        
+      ],
     }
   ]
 })
